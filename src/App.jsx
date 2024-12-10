@@ -1,13 +1,18 @@
+import { useState } from 'react'
+import { Button } from 'antd'
+import Ping from './components/atoms/Ping/Ping.jsx';
 import './App.css'
-import {Button} from 'antd'
 
 function App() {
 
+  const [isVisible, setIsVisible ]= useState(false);
+
   return (
     <>
-      <Button type="primary" ghost>
-        Primary
+      <Button type="primary" ghost onClick={()=> setIsVisible(!isVisible)}>
+        {isVisible ? 'Hide Component':'Show Component'}
       </Button>
+      { isVisible && <Ping/> }
     </>
   )
 }
